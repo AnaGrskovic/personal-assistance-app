@@ -11,7 +11,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class PersonInNeed extends User {
 
-    private Role role;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
@@ -20,8 +19,10 @@ public class PersonInNeed extends User {
     private String postalCode;
     private String country;
 
-    public PersonInNeed(String firstName, String lastName, Date dateOfBirth, String address, String city, String postalCode, String country) {
+    public PersonInNeed(String username, String password, String firstName, String lastName, Date dateOfBirth, String address, String city, String postalCode, String country) {
         this.role = Role.PERSON_IN_NEED;
+        this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
