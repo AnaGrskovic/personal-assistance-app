@@ -11,10 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-
     protected Long userId;
     protected Role role;
     protected String username;
     protected String password;
-
 }
