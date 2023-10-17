@@ -12,7 +12,7 @@
 	<artifactId>personal-assistance-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>personal-assistance-app</name>
-	<description>Application for providing personal assitance to people in need</description>
+	<description>Application for providing personal assistance to people in need</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -60,14 +60,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
