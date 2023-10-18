@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserLoginDto userLogin (UserLoginForm userLoginForm){
-        return userService.userLogin(userLoginForm);
+    public UserDto userLogin (UserForm userForm){
+        return userService.userLogin(userForm);
     }
 
 }

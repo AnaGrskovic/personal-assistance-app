@@ -9,5 +9,5 @@ public interface UserService {
 
     ProfessionalInChargeDto professionalInChargeRegistration(ProfessionalInChargeForm professionalInChargeForm);
 
-    UserLoginDto userLogin(UserLoginForm userLoginForm);
+    UserDto userLogin(UserForm userForm);
 }

@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 public class ProfessionalInChargeForm {
 
     //TODO check if another field isn't necessary/is needed
-    private String username;
-    private String password;
+    private UserForm userForm;
 }

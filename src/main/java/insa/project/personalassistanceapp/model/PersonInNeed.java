@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.Date;
 
 @Getter
@@ -11,7 +12,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PersonInNeed {
-
     private User user;
     private Long personInNeedId;
     private String firstName;
@@ -21,5 +21,4 @@ public class PersonInNeed {
     private String city;
     private String postalCode;
     private String country;
-
 }

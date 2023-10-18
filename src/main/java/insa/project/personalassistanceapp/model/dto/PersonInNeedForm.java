@@ -10,8 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PersonInNeedForm {
-    private String username;
-    private String password;
+    private UserForm userForm;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
