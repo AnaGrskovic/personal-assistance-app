@@ -1,19 +1,16 @@
-package insa.project.personalassistanceapp.model;
+package insa.project.personalassistanceapp.model.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class PersonInNeed {
-    private User user;
-    private Long personInNeedId;
+@NoArgsConstructor
+public class PersonInNeedForm {
+    private UserForm userForm;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;

@@ -1,16 +1,14 @@
-package insa.project.personalassistanceapp.model;
+package insa.project.personalassistanceapp.model.dto;
 
 import insa.project.personalassistanceapp.util.Role;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class UserDto {
     private Long userId;
     private Role role;
     private String username;
