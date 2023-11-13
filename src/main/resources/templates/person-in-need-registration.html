@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Person in Need Registration</title>
+</head>
+
+<body>
+
+<h2>Person in Need Registration</h2>
+
+<form th:object="${personInNeedForm}" th:action="@{/register}" method="post">
+
+    <!-- Common UserForm fields -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{userForm.username}" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" th:field="*{userForm.password}" required />
+
+    <!-- Person in Need fields -->
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" th:field="*{firstName}" required />
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" th:field="*{lastName}" required />
+
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" required />
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" th:field="*{address}" required />
+
+    <label for="city">City:</label>
+    <input type="text" id="city" th:field="*{city}" required />
+
+    <label for="postalCode">Postal Code:</label>
+    <input type="text" id="postalCode" th:field="*{postalCode}" required />
+
+    <label for="country">Country:</label>
+    <input type="text" id="country" th:field="*{country}" required />
+
+    <button type="submit">Register</button>
+</form>
+
+</body>
+
+</html>
