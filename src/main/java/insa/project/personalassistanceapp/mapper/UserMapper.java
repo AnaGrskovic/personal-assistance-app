@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    User mapUserFormToUser(UserForm userForm);
+    User mapFormToObject(UserForm userForm);
 
     @Mapping(source = "role.roleName", target = "roleName")
     UserDto mapObjectToDto(User user);

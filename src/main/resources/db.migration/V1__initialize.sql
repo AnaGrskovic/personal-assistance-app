@@ -47,10 +47,12 @@ CREATE TABLE mission_status
 
 CREATE TABLE mission
 (
-    mission_id        BIGINT PRIMARY KEY,
-    person_in_need_id BIGINT,
-    volunteer_id BIGINT,
-    mission_status_id BIGINT,
+    mission_id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    mission_name        VARCHAR(255)  NOT NULL,
+    mission_description VARCHAR(1000) NOT NULL,
+    person_in_need_id   BIGINT,
+    volunteer_id        BIGINT,
+    mission_status_id   BIGINT,
     FOREIGN KEY (person_in_need_id) REFERENCES person_in_need (person_in_need_id),
     FOREIGN KEY (volunteer_id) REFERENCES volunteer (volunteer_id),
     FOREIGN KEY (mission_status_id) REFERENCES mission_status (mission_status_id)
@@ -91,10 +93,10 @@ INSERT INTO volunteer (volunteer_id, user_id)
 VALUES (1, 5),
        (2, 6);
 
-INSERT INTO mission(mission_id, person_in_need_id, volunteer_id, mission_status_id)
-VALUES (1, 1, NULL, 2),
-       (2, NULL, 1, 1),
-       (3, 1, 1, 4),
-       (4, 2, NULL, 6);
+INSERT INTO mission(mission_id, mission_name, mission_description, person_in_need_id, volunteer_id, mission_status_id)
+VALUES (1, 'Mission name 1', 'Mission Description 1', 1, NULL, 2),
+       (2, 'Mission name 2', 'Mission Description 2', NULL, 1, 1),
+       (3, 'Mission name 3', 'Mission Description 3', 1, 1, 4),
+       (4, 'Mission name 4', 'Mission Description 4', 2, NULL, 6);
 
 
