@@ -7,14 +7,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "role")
-public class Role {
+@Table(name = "mission_status")
+public class MissionStatus {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id", updatable = false, nullable = false)
-    private Long roleId;
+    @Column(name = "mission_status_id")
+    private Long missionStatusId;
 
-    @Column(name = "role_name")
-    private String roleName;
-
+    @Column(name="mission_status_name")
+    private String missionStatusName;
 }
