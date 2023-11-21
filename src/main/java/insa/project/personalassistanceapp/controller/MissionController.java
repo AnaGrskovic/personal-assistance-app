@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.InvalidObjectException;
+
 @Controller
 @RequestMapping("/mission")
 @RequiredArgsConstructor
@@ -30,6 +32,8 @@ public class MissionController {
         try {
             missionService.createMission(missionForm);
             return "successful-mission-creation";
+        } catch (InvalidObjectException ex) {
+            return "invalid-form";
         } catch (EntityNotFoundException ex) {
             return "invalid-username";
         } catch (Exception ex) {
