@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfessionalInChargeDto {
-    //TODO check if another field isn't necessary/is needed
     private UserDto userDto;
     private Long professionalInChargeId;
 

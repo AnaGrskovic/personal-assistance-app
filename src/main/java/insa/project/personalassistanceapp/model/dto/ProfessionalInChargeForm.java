@@ -8,7 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfessionalInChargeForm {
-
-    //TODO check if another field isn't necessary/is needed
     private UserForm userForm;
 }
