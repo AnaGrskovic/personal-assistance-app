@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MissionStatusDto {
     Long missionStatusId;
-    Long missionStatusName;
+    String missionStatusName;
 }

@@ -47,7 +47,7 @@ CREATE TABLE mission_status
 
 CREATE TABLE mission
 (
-    mission_id          BIGINT PRIMARY KEY,
+    mission_id          BIGINT AUTO_INCREMENT PRIMARY KEY,
     mission_name        VARCHAR(255)  NOT NULL,
     mission_description VARCHAR(1000) NOT NULL,
     person_in_need_id   BIGINT,
@@ -95,8 +95,8 @@ VALUES (1, 5),
 
 INSERT INTO mission(mission_id, mission_name, mission_description, person_in_need_id, volunteer_id, mission_status_id)
 VALUES (1, 'Mission name 1', 'Mission Description 1', 1, NULL, 2),
-       (2, 'Mission name 1', 'Mission Description 1', NULL, 1, 1),
-       (3, 'Mission name 1', 'Mission Description 1', 1, 1, 4),
-       (4, 'Mission name 1', 'Mission Description 1', 2, NULL, 6);
+       (2, 'Mission name 2', 'Mission Description 2', NULL, 1, 1),
+       (3, 'Mission name 3', 'Mission Description 3', 1, 1, 4),
+       (4, 'Mission name 4', 'Mission Description 4', 2, NULL, 6);
 
 
