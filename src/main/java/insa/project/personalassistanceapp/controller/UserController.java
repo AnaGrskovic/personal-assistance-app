@@ -1,7 +1,6 @@
 package insa.project.personalassistanceapp.controller;
 
 import insa.project.personalassistanceapp.model.dto.*;
-import insa.project.personalassistanceapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
