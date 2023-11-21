@@ -4,9 +4,12 @@ import insa.project.personalassistanceapp.model.User;
 import insa.project.personalassistanceapp.model.dto.UserDto;
 import insa.project.personalassistanceapp.model.dto.UserForm;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
     User mapUserFormToUser(UserForm userForm);
+
+    @Mapping(source = "role.roleName", target = "roleName")
     UserDto mapObjectToDto(User user);
 }

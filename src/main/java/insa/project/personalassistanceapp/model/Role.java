@@ -4,19 +4,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "volunteer")
-public class Volunteer {
+@Table(name = "role")
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "volunteer_id")
-    private Long volunteerId;
+    @Column(name = "role_id", updatable = false, nullable = false)
+    private Long roleId;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "role_name")
+    private String roleName;
 
 }

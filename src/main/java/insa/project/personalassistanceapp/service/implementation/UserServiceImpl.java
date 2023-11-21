@@ -9,12 +9,8 @@ import insa.project.personalassistanceapp.model.ProfessionalInCharge;
 import insa.project.personalassistanceapp.model.User;
 import insa.project.personalassistanceapp.model.Volunteer;
 import insa.project.personalassistanceapp.model.dto.*;
-import insa.project.personalassistanceapp.repository.PersonInNeedRepository;
-import insa.project.personalassistanceapp.repository.ProfessionalInChargeRepository;
-import insa.project.personalassistanceapp.repository.UserRepository;
-import insa.project.personalassistanceapp.repository.VolunteerRepository;
+import insa.project.personalassistanceapp.repository.*;
 import insa.project.personalassistanceapp.service.UserService;
-import insa.project.personalassistanceapp.util.Role;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,11 +28,12 @@ public class UserServiceImpl implements UserService {
     private final PersonInNeedRepository personInNeedRepository;
     private final VolunteerRepository volunteerRepository;
     private final ProfessionalInChargeRepository professionalInChargeRepository;
+    private final RoleRepository roleRepository;
 
     @Override
     public PersonInNeedDto personInNeedRegistration(PersonInNeedForm personInNeedForm) {
         PersonInNeed personInNeed = personInNeedMapper.mapFormToObject(personInNeedForm);
-        personInNeed.getUser().setRole(Role.PERSON_IN_NEED);
+        personInNeed.getUser().setRole(roleRepository.getReferenceById(1L));
 
         personInNeed.setUser(userRepository.save(personInNeed.getUser()));
         personInNeed = personInNeedRepository.save(personInNeed);
@@ -47,7 +44,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public VolunteerDto volunteerRegistration(VolunteerForm volunteerForm) {
         Volunteer volunteer = volunteerMapper.mapFormToObject(volunteerForm);
-        volunteer.getUser().setRole(Role.VOLUNTEER);
+        volunteer.getUser().setRole(roleRepository.getReferenceById(2L));
 
         volunteer.setUser(userRepository.save(volunteer.getUser()));
         volunteer = volunteerRepository.save(volunteer);
@@ -58,7 +55,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ProfessionalInChargeDto professionalInChargeRegistration(ProfessionalInChargeForm professionalInChargeForm) {
         ProfessionalInCharge professionalInCharge = professionalInChargeMapper.mapFormToObject(professionalInChargeForm);
-        professionalInCharge.getUser().setRole(Role.PROFESSIONAL);
+        professionalInCharge.getUser().setRole(roleRepository.getReferenceById(3L));
 
         professionalInCharge.setUser(userRepository.save(professionalInCharge.getUser()));
         professionalInCharge = professionalInChargeRepository.save(professionalInCharge);

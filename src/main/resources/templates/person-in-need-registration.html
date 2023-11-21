@@ -9,16 +9,14 @@
 
 <h2>Person in Need Registration</h2>
 
-<form th:object="${personInNeedForm}" th:action="@{/person-in-need/registration}" method="post">
+<form action="#" th:action="@{/user/person-in-need/registration}" th:object="${personInNeedForm}" method="post">
 
-    <!-- Common UserForm fields -->
     <label for="username">Username:</label>
     <input type="text" id="username" th:field="*{userForm.username}" required />
 
     <label for="password">Password:</label>
     <input type="password" id="password" th:field="*{userForm.password}" required />
 
-    <!-- Person in Need fields -->
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" th:field="*{firstName}" required />
 
@@ -40,7 +38,8 @@
     <label for="country">Country:</label>
     <input type="text" id="country" th:field="*{country}" required />
 
-    <button type="submit">Register</button>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
 </form>
 
 </body>

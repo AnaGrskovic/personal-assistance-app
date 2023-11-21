@@ -1,17 +1,22 @@
 package insa.project.personalassistanceapp.model;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "professional_in_charge")
 public class ProfessionalInCharge {
-    private User user;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "professional_in_charge_id")
     private Long professionalInChargeId;
-    //TODO finish Object
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }
