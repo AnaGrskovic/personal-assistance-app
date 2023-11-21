@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Volunteer {
     private User user;
+    private Long volunteerId;
     //TODO finish Object
 
 }

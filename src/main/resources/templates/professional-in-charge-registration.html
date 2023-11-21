@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Professional in Charge Registration</title>
+</head>
+
+<body>
+
+<h2>Professional in Charge Registration</h2>
+
+<form th:object="${professionalInChargeForm}" th:action="@{/register}" method="post">
+
+    <!-- Common UserForm fields -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{userForm.username}" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" th:field="*{userForm.password}" required />
+
+    <button type="submit">Register</button>
+</form>
+
+</body>
+
+</html>

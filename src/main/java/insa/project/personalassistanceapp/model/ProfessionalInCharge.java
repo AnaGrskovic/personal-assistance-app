@@ -11,6 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProfessionalInCharge {
     private User user;
+    private Long professionalInChargeId;
     //TODO finish Object
 
 }
