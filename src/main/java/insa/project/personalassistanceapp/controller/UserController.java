@@ -23,8 +23,12 @@ public class UserController {
 
     @PostMapping("/person-in-need/registration")
     public String processPersonInNeedRegistrationForm(@ModelAttribute("personInNeedForm") PersonInNeedForm personInNeedForm) {
-        userService.personInNeedRegistration(personInNeedForm);
-        return "successful-registration";
+        try {
+            userService.personInNeedRegistration(personInNeedForm);
+            return "successful-registration";
+        } catch (Exception ex) {
+            return "error";
+        }
     }
 
     @GetMapping("/volunteer/registration")
@@ -36,8 +40,12 @@ public class UserController {
 
     @PostMapping("/volunteer/registration")
     public String processVolunteerRegistrationForm(@ModelAttribute("volunteerForm") VolunteerForm volunteerForm) {
-        userService.volunteerRegistration(volunteerForm);
-        return "successful-registration";
+        try {
+            userService.volunteerRegistration(volunteerForm);
+            return "successful-registration";
+        } catch (Exception ex) {
+            return "error";
+        }
     }
 
     @GetMapping("/professional-in-charge/registration")
@@ -49,8 +57,12 @@ public class UserController {
 
     @PostMapping("/professional-in-charge/registration")
     public String processProfessionalInChargeRegistrationForm(@ModelAttribute("professionalInChargeForm") ProfessionalInChargeForm professionalInChargeForm) {
-        userService.professionalInChargeRegistration(professionalInChargeForm);
-        return "successful-registration";
+        try {
+            userService.professionalInChargeRegistration(professionalInChargeForm);
+            return "successful-registration";
+        } catch (Exception ex) {
+            return "error";
+        }
     }
 
     @GetMapping("/login")
@@ -62,8 +74,12 @@ public class UserController {
 
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute("userForm") UserForm userForm) {
-        userService.userLogin(userForm);
-        return "successful-login";
+        try {
+            userService.userLogin(userForm);
+            return "successful-login";
+        } catch (Exception ex) {
+            return "error";
+        }
     }
 
 }

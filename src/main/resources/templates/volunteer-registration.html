@@ -9,18 +9,17 @@
 
 <h2>Volunteer Registration</h2>
 
-<form action="#" th:object="${volunteerForm}" th:action="@{/user/volunteer/register}" method="post">
+<form action="#" th:action="@{/user/volunteer/registration}" th:object="${volunteerForm}" method="post">
 
-    <!-- Common UserForm fields -->
-    <label for="username">Username:</label>
-    <input type="text" id="username" th:field="*{userForm.username}" required />
+    <p>Username: <input type="text" th:field="*{userForm.username}" /></p>
+    <p>Password: <input type="password" th:field="*{userForm.password}" /></p>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" th:field="*{userForm.password}" required />
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
-    <button type="submit">Register</button>
 </form>
 
 </body>
 
 </html>
+
+
