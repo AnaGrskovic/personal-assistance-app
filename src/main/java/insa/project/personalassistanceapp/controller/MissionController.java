@@ -1,15 +1,16 @@
 package insa.project.personalassistanceapp.controller;
 
+import insa.project.personalassistanceapp.model.dto.MissionDto;
 import insa.project.personalassistanceapp.model.dto.MissionForm;
+import insa.project.personalassistanceapp.model.dto.MissionRequestDto;
 import insa.project.personalassistanceapp.service.MissionService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import java.io.InvalidObjectException;
 
@@ -41,5 +42,14 @@ public class MissionController {
         }
     }
 
-    //TODO GETALL, GET
+    @GetMapping("/all")
+    public List<MissionDto> getAllMissions(){
+        return missionService.getAllMissions();
+    }
+
+    @PostMapping("/all-by-mission-status")
+    public List<MissionDto> getAllMissionsByMissionStatusName(@RequestBody MissionRequestDto missionRequestDto){
+        return missionService.getAllMissionsByMissionStatusName(missionRequestDto);
+    }
+
 }

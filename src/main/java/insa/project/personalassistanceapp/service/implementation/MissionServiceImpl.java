@@ -6,6 +6,7 @@ import insa.project.personalassistanceapp.model.PersonInNeed;
 import insa.project.personalassistanceapp.model.Volunteer;
 import insa.project.personalassistanceapp.model.dto.MissionDto;
 import insa.project.personalassistanceapp.model.dto.MissionForm;
+import insa.project.personalassistanceapp.model.dto.MissionRequestDto;
 import insa.project.personalassistanceapp.repository.MissionRepository;
 import insa.project.personalassistanceapp.repository.MissionStatusRepository;
 import insa.project.personalassistanceapp.repository.PersonInNeedRepository;
@@ -14,8 +15,8 @@ import insa.project.personalassistanceapp.service.MissionService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.io.InvalidObjectException;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +31,7 @@ public class MissionServiceImpl implements MissionService {
 
     @Override
     public MissionDto createMission(MissionForm missionForm) throws InvalidObjectException {
+
         Mission mission = missionMapper.mapFormToObject(missionForm);
 
         if ((mission.getPersonInNeed() == null && mission.getVolunteer() == null) ||
@@ -53,5 +55,16 @@ public class MissionServiceImpl implements MissionService {
 
         mission = missionRepository.save(mission);
         return missionMapper.mapObjectToDto(mission);
+    }
+
+    @Override
+    public List<MissionDto> getAllMissions() {
+        return missionRepository.findAll().stream().map(missionMapper::mapObjectToDto).toList();
+    }
+
+    @Override
+    public List<MissionDto> getAllMissionsByMissionStatusName(MissionRequestDto missionRequestDto) {
+        return missionRepository.findAllByMissionStatusName(missionRequestDto.getMissionStatusName())
+                .stream().map(missionMapper::mapObjectToDto).toList();
     }
 }
