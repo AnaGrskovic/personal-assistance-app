@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Mission Creation</title>
+</head>
+
+<body>
+
+<h2>Mission Creation</h2>
+
+<form action="#" th:action="@{/mission/creation}" th:object="${missionForm}" method="post">
+
+  <p>Person in Need Username: <input type="text" th:field="*{personInNeedUsername}" /></p>
+  <p>Volunteer Username: <input type="text" th:field="*{volunteerUsername}" /></p>
+  <p>Mission Name: <input type="text" th:field="*{missionName}" /></p>
+  <p>Mission Description: <input type="text" th:field="*{missionDescription}" /></p>
+
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+</form>
+
+</body>
+
+</html>
