@@ -15,6 +15,8 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MissionServiceImpl implements MissionService {
@@ -27,7 +29,7 @@ public class MissionServiceImpl implements MissionService {
     private final MissionMapper missionMapper;
 
     @Override
-    public MissionDto createMission(MissionForm missionForm){
+    public MissionDto createMission(MissionForm missionForm) {
         Mission mission = missionMapper.mapFormToObject(missionForm);
 
         if(missionForm.getPersonInNeedUsername() != null){
@@ -44,11 +46,12 @@ public class MissionServiceImpl implements MissionService {
             mission.setMissionStatus(missionStatusRepository.getReferenceById(1L));
         }
 
-//        if(mission.getPersonInNeed() == null && mission.getVolunteer() == null){
-//            throw new InvalidObjectException("Form for mission creation is filled out incorrectly.");
-//        }
-
         mission = missionRepository.save(mission);
         return missionMapper.mapObjectToDto(mission);
+    }
+
+    @Override
+    public List<MissionDto> getAllMissions() {
+        return missionRepository.findAll().stream().map(missionMapper::mapObjectToDto).toList();
     }
 }

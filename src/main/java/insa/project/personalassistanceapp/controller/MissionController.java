@@ -1,5 +1,6 @@
 package insa.project.personalassistanceapp.controller;
 
+import insa.project.personalassistanceapp.model.dto.MissionDto;
 import insa.project.personalassistanceapp.model.dto.MissionForm;
 import insa.project.personalassistanceapp.service.MissionService;
 import jakarta.persistence.EntityNotFoundException;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/mission")
@@ -35,6 +38,11 @@ public class MissionController {
         } catch (Exception ex) {
             return "error";
         }
+    }
+
+    @GetMapping("/all")
+    public List<MissionDto> getAllMissions(){
+        return missionService.getAllMissions();
     }
 
     //TODO GETALL, GET
