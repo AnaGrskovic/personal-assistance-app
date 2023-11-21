@@ -2,6 +2,7 @@ package insa.project.personalassistanceapp.controller;
 
 import insa.project.personalassistanceapp.model.dto.*;
 import insa.project.personalassistanceapp.service.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -77,6 +78,8 @@ public class UserController {
         try {
             userService.userLogin(userForm);
             return "successful-login";
+        } catch (EntityNotFoundException ex) {
+            return "invalid-credentials";
         } catch (Exception ex) {
             return "error";
         }
