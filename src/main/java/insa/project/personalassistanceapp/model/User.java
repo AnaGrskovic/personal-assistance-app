@@ -9,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", updatable = false, nullable = false)
@@ -23,4 +24,5 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
 }

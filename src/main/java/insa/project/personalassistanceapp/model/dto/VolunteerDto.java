@@ -8,12 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VolunteerDto {
-    //TODO check if another field isn't necessary/is needed
     private UserDto userDto;
     private Long volunteerId;
-    private String firstName;
-    private String lastName;
-    private String city;
-    private String postalCode;
-    private String country;
 }

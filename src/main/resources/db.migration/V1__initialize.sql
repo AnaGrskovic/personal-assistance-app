@@ -27,18 +27,16 @@ CREATE TABLE person_in_need
     FOREIGN KEY (user_id) REFERENCES user (user_id)
 );
 
-CREATE TABLE professional_in_charge
-(
-    professional_in_charge_id BIGINT PRIMARY KEY,
-    user_id                   BIGINT,
-    FOREIGN KEY (user_id) REFERENCES user (user_id)
+CREATE TABLE professional_in_charge (
+    professional_in_charge_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT,
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
-CREATE TABLE volunteer
-(
-    volunteer_id BIGINT PRIMARY KEY,
-    user_id      BIGINT,
-    FOREIGN KEY (user_id) REFERENCES user (user_id)
+CREATE TABLE volunteer (
+    volunteer_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT,
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE mission_status
