@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import java.io.InvalidObjectException;
+
 @Controller
 @RequestMapping("/mission")
 @RequiredArgsConstructor
@@ -31,6 +33,8 @@ public class MissionController {
         try {
             missionService.createMission(missionForm);
             return "successful-mission-creation";
+        } catch (InvalidObjectException ex) {
+            return "invalid-form";
         } catch (EntityNotFoundException ex) {
             return "invalid-username";
         } catch (Exception ex) {

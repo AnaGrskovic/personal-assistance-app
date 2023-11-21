@@ -6,10 +6,14 @@ import insa.project.personalassistanceapp.model.dto.MissionRequestDto;
 
 import java.util.List;
 
+import java.io.InvalidObjectException;
+
 public interface MissionService {
-    MissionDto createMission(MissionForm missionForm);
+
+    MissionDto createMission(MissionForm missionForm) throws InvalidObjectException;
 
     List<MissionDto> getAllMissions();
 
     List<MissionDto> getAllMissionsByMissionStatusName(MissionRequestDto missionRequestDto);
+
 }

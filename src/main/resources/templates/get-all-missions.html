@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Missions</title>
+</head>
+<body>
+<h2>All Missions</h2>
+
+<table>
+    <tr>
+        <th>Mission ID</th>
+        <th>Mission Name</th>
+        <th>Mission Description</th>
+        <th>Person in Need Username</th>
+        <th>Volunteer Username</th>
+        <th>Mission Status</th>
+    </tr>
+    <tr th:each="mission : ${missions}">
+        <td th:text="${mission.missionId}"></td>
+        <td th:text="${mission.missionName}"></td>
+        <td th:text="${mission.missionDescription}"></td>
+        <td th:text="${mission.personInNeed.user.username}"></td>
+        <td th:text="${mission.volunteer.user.username}"></td>
+        <td th:text="${mission.missionStatus.missionStatusName}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
