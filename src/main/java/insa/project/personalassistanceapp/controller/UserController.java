@@ -28,6 +28,11 @@ public class UserController {
     @PostMapping("/professional-in-charge/registration")
     public ProfessionalInChargeDto professionalInChargeRegistration (ProfessionalInChargeForm professionalInChargeForm){
         return userService.professionalInChargeRegistration(professionalInChargeForm);
+    }
+
+    @PostMapping("/login")
+    public UserDto userLogin (UserForm userForm){
+        return userService.userLogin(userForm);
     }*/
 
     @GetMapping("/person-in-need/registration")
@@ -37,10 +42,10 @@ public class UserController {
         return "person-in-need-registration";
     }
 
-    @PostMapping("person-in-need/registration")
+    @PostMapping("/person-in-need/registration")
     public String processPersonInNeedRegistrationForm(@ModelAttribute("personInNeedForm") PersonInNeedForm personInNeedForm) {
         userService.personInNeedRegistration(personInNeedForm);
-        return "successfully-registered";
+        return "successful-registration";
     }
 
     @GetMapping("/volunteer/registration")
@@ -50,10 +55,10 @@ public class UserController {
         return "volunteer-registration";
     }
 
-    @PostMapping("volunteer/registration")
+    @PostMapping("/volunteer/registration")
     public String processVolunteerRegistrationForm(@ModelAttribute("volunteerForm") VolunteerForm volunteerForm) {
         userService.volunteerRegistration(volunteerForm);
-        return "successfully-registered";
+        return "successful-registration";
     }
 
     @GetMapping("/professional-in-charge/registration")
@@ -63,15 +68,23 @@ public class UserController {
         return "professional-in-charge-registration";
     }
 
-    @PostMapping("professional-in-charge/registration")
+    @PostMapping("/professional-in-charge/registration")
     public String processProfessionalInChargeRegistrationForm(@ModelAttribute("professionalInChargeForm") ProfessionalInChargeForm professionalInChargeForm) {
         userService.professionalInChargeRegistration(professionalInChargeForm);
-        return "successfully-registered";
+        return "successful-registration";
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        UserForm userForm = new UserForm();
+        model.addAttribute("userForm", userForm);
+        return "login";
     }
 
     @PostMapping("/login")
-    public UserDto userLogin (UserForm userForm){
-        return userService.userLogin(userForm);
+    public String processLoginForm(@ModelAttribute("userForm") UserForm userForm) {
+        userService.userLogin(userForm);
+        return "successful-login";
     }
 
 }
