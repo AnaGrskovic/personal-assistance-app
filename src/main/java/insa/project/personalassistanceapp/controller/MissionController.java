@@ -6,6 +6,7 @@ import insa.project.personalassistanceapp.model.dto.MissionRequestDto;
 import insa.project.personalassistanceapp.service.MissionService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,8 @@ public class MissionController {
         try {
             missionService.createMission(missionForm);
             return "successful-mission-creation";
+        } catch (DuplicateKeyException ex) {
+            return "mission-name-unique-error";
         } catch (InvalidObjectException ex) {
             return "invalid-form";
         } catch (EntityNotFoundException ex) {

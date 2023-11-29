@@ -3,25 +3,6 @@
 
 <head>
   <title>Mission Creation</title>
-  <script>
-    function showAdditionalContent() {
-      var personInNeedRadio = document.getElementById('personInNeed');
-      var personInNeedContent = document.getElementById('personInNeedContent');
-      if (personInNeedRadio.checked) {
-        personInNeedContent.style.display = 'block';
-      } else {
-        personInNeedContent.style.display = 'none';
-      }
-
-      var volunteerRadio = document.getElementById('volunteer');
-      var volunteerContent = document.getElementById('volunteerContent');
-      if (volunteerRadio.checked) {
-        volunteerContent.style.display = 'block';
-      } else {
-        volunteerContent.style.display = 'none';
-      }
-    }
-  </script>
 </head>
 
 <body>
@@ -35,8 +16,8 @@
   <p>Person in Need Username: <input type="text" th:field="*{personInNeedUsername}" /></p>
   <p>Volunteer Username: <input type="text" th:field="*{volunteerUsername}" /></p>
 
-  <p>Mission Name: <input type="text" th:field="*{missionName}" /></p>
-  <p>Mission Description: <input type="text" th:field="*{missionDescription}" /></p>
+  <p>Mission Name: <input type="text" th:field="*{missionName}" required /></p>
+  <p>Mission Description: <input type="text" th:field="*{missionDescription}" required /></p>
 
   <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
