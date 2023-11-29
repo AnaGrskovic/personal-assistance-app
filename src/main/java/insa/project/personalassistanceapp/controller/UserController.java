@@ -4,6 +4,7 @@ import insa.project.personalassistanceapp.model.dto.*;
 import insa.project.personalassistanceapp.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
@@ -27,6 +28,8 @@ public class UserController {
         try {
             userService.personInNeedRegistration(personInNeedForm);
             return "successful-registration";
+        } catch (DuplicateKeyException ex) {
+            return "username-unique-error";
         } catch (Exception ex) {
             return "error";
         }
@@ -44,6 +47,8 @@ public class UserController {
         try {
             userService.volunteerRegistration(volunteerForm);
             return "successful-registration";
+        } catch (DuplicateKeyException ex) {
+            return "username-unique-error";
         } catch (Exception ex) {
             return "error";
         }
@@ -61,6 +66,8 @@ public class UserController {
         try {
             userService.professionalInChargeRegistration(professionalInChargeForm);
             return "successful-registration";
+        } catch (DuplicateKeyException ex) {
+            return "username-unique-error";
         } catch (Exception ex) {
             return "error";
         }
