@@ -11,15 +11,15 @@
 
 <form action="#" th:action="@{/user/person-in-need/registration}" th:object="${personInNeedForm}" method="post">
 
-    <p>Username: <input type="text" th:field="*{userForm.username}" /></p>
-    <p>Password: <input type="password" th:field="*{userForm.password}" /></p>
-    <p>First Name: <input type="text" th:field="*{firstName}" /></p>
-    <p>Last Name: <input type="text" th:field="*{lastName}" /></p>
-    <p>Date of Birth: <input type="date" th:field="*{dateOfBirth}" /></p>
-    <p>Address: <input type="text" th:field="*{address}" /></p>
-    <p>City: <input type="text" th:field="*{city}" /></p>
-    <p>Postal Code: <input type="text" th:field="*{postalCode}" /></p>
-    <p>Country: <input type="text" th:field="*{country}" /></p>
+    <p>Username: <input type="text" th:field="*{userForm.username}" required /></p>
+    <p>Password: <input type="password" th:field="*{userForm.password}" required /></p>
+    <p>First Name: <input type="text" th:field="*{firstName}" required /></p>
+    <p>Last Name: <input type="text" th:field="*{lastName}" required /></p>
+    <p>Date of Birth: <input type="date" th:field="*{dateOfBirth}" required /></p>
+    <p>Address: <input type="text" th:field="*{address}" required /></p>
+    <p>City: <input type="text" th:field="*{city}" required /></p>
+    <p>Postal Code: <input type="text" th:field="*{postalCode}" required /></p>
+    <p>Country: <input type="text" th:field="*{country}" required /></p>
 
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
