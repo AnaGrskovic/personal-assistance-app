@@ -3,6 +3,7 @@ package insa.project.personalassistanceapp.controller;
 import insa.project.personalassistanceapp.model.dto.*;
 import insa.project.personalassistanceapp.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
