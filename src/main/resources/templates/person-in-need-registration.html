@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Person in Need Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background color */
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff; /* White background color for the form */
+            padding: 20px;
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #4CAF50; /* Green background color for buttons */
+            color: #fff; /* White text color for buttons */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Person in Need Registration</h2>
+
+<form action="#" th:action="@{/mission/creation}" th:object="${personInNeedForm}" method="post">
+
+    <p>Username: <input type="text" th:field="*{userForm.username}" required /></p>
+    <p>Password: <input type="password" th:field="*{userForm.password}" required /></p>
+    <p>First Name: <input type="text" th:field="*{firstName}" required /></p>
+    <p>Last Name: <input type="text" th:field="*{lastName}" required /></p>
+    <p>Date of Birth: <input type="date" th:field="*{dateOfBirth}" required /></p>
+    <p>Address: <input type="text" th:field="*{address}" required /></p>
+    <p>City: <input type="text" th:field="*{city}" required /></p>
+    <p>Postal Code: <input type="text" th:field="*{postalCode}" required /></p>
+    <p>Country: <input type="text" th:field="*{country}" required /></p>
+
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+</form>
+
+</body>
+
+</html>
