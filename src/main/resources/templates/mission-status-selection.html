@@ -3,18 +3,67 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Mission Status Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background color */
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff; /* White background color for the form */
+            padding: 20px;
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green background color for buttons */
+            color: #fff; /* White text color for buttons */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
 </head>
 <body>
 
 <h1>Mission Status Search</h1>
 
-<form action="/search" method="post">
+<form action="#" th:action="@{/mission/all-by-mission-status}" th:object="${missionRequestDto}" method="post">
+
     <label for="missionStatus">Select Mission Status:</label>
     <select id="missionStatus" name="missionStatus" th:field="${missionRequestDto.missionStatusName}">
         <option th:each="missionStatus : ${missionStatuses}" th:value="${missionStatus}" th:text="${missionStatus.getMissionStatusName()}"></option>
     </select>
 
-    <button type="submit">Search</button>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
 </form>
 
 </body>

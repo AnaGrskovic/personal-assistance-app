@@ -62,6 +62,11 @@ public class MissionController {
     }
 
     @GetMapping("/all-by-mission-status")
+    public List<MissionDto> showGetAllMissionByStatusForm(MissionRequestDto missionRequestDto) {
+        return missionService.getAllMissionsByMissionStatusName(missionRequestDto);
+    }
+
+    /*@GetMapping("/all-by-mission-status")
     public String showGetAllMissionByStatusForm(Model model) {
         MissionRequestDto missionRequestDto = new MissionRequestDto();
         List<MissionStatusDto> missionStatuses = missionStatusService.getAllMissionStatusNames();
@@ -79,6 +84,6 @@ public class MissionController {
         } catch (Exception ex) {
             return "error";
         }
-    }
+    }*/
 
 }
