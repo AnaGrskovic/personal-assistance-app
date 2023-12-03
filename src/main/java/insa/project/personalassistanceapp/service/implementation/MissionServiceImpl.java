@@ -8,6 +8,7 @@ import insa.project.personalassistanceapp.model.Volunteer;
 import insa.project.personalassistanceapp.model.dto.MissionDto;
 import insa.project.personalassistanceapp.model.dto.MissionForm;
 import insa.project.personalassistanceapp.model.dto.MissionRequestDto;
+import insa.project.personalassistanceapp.model.dto.MissionStatusDto;
 import insa.project.personalassistanceapp.repository.MissionRepository;
 import insa.project.personalassistanceapp.repository.MissionStatusRepository;
 import insa.project.personalassistanceapp.repository.PersonInNeedRepository;
@@ -75,4 +76,5 @@ public class MissionServiceImpl implements MissionService {
         return missionRepository.findAllByMissionStatusName(missionRequestDto.getMissionStatusName())
                 .stream().map(missionMapper::mapObjectToDto).toList();
     }
+
 }
