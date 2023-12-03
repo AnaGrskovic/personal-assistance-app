@@ -46,8 +46,14 @@ public class MissionController {
     }
 
     @GetMapping("/all")
-    public List<MissionDto> getAllMissions(){
-        return missionService.getAllMissions();
+    public String getAllMissions(Model model) {
+        try {
+            List<MissionDto> missions = missionService.getAllMissions();
+            model.addAttribute("missions", missions);
+            return "get-all-missions";
+        } catch (Exception ex) {
+            return "error";
+        }
     }
 
     @PostMapping("/all-by-mission-status")

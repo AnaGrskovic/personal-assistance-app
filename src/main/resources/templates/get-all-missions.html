@@ -19,9 +19,13 @@
         <td th:text="${mission.missionId}"></td>
         <td th:text="${mission.missionName}"></td>
         <td th:text="${mission.missionDescription}"></td>
-        <td th:text="${mission.personInNeed.user.username}"></td>
-        <td th:text="${mission.volunteer.user.username}"></td>
-        <td th:text="${mission.missionStatus.missionStatusName}"></td>
+        <h1 th:if="${mission.personInNeedDto != null}">
+            <td th:text="${mission.personInNeedDto.UserDto.username}"></td>
+        </h1>
+        <h1 th:if="${mission.volunteerDto != null}">
+            <td th:text="${mission.volunteerDto.UserDto.username}"></td>
+        </h1>
+        <td th:text="${mission.MissionStatusDto.missionStatusName}"></td>
     </tr>
 </table>
 
