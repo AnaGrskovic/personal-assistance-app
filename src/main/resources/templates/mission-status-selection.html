@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <title>Volunteer Registration</title>
+    <meta charset="UTF-8"/>
+    <title>Mission Status Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
             margin: 20px;
         }
 
-        h2 {
+        h1 {
             color: #333;
         }
 
@@ -24,21 +24,20 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
         }
 
-        p {
-            margin-bottom: 15px;
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        input[type="text"],
-        input[type="password"],
-        input[type="date"] {
+        select {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
             box-sizing: border-box;
         }
 
-        input[type="submit"],
-        input[type="reset"] {
+        button {
             background-color: #4CAF50; /* Green background color for buttons */
             color: #fff; /* White text color for buttons */
             padding: 10px;
@@ -47,28 +46,25 @@
             cursor: pointer;
         }
 
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
+        button:hover {
             background-color: #45a049; /* Darker green on hover */
         }
     </style>
 </head>
-
 <body>
 
-<h2>Volunteer Registration</h2>
+<h1>Mission Status Search</h1>
 
-<form action="#" th:action="@{/user/volunteer/registration}" th:object="${volunteerForm}" method="post">
+<form action="#" th:action="@{/mission/all-by-mission-status}" th:object="${missionRequestDto}" method="post">
 
-    <p>Username: <input type="text" th:field="*{userForm.username}" required /></p>
-    <p>Password: <input type="password" th:field="*{userForm.password}" required /></p>
+    <label for="missionStatus">Select Mission Status:</label>
+    <select id="missionStatus" name="missionStatus" th:field="${missionRequestDto.missionStatusName}">
+        <option th:each="missionStatus : ${missionStatuses}" th:value="${missionStatus}" th:text="${missionStatus.getMissionStatusName()}"></option>
+    </select>
 
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 
 </form>
 
 </body>
-
 </html>
-
-
