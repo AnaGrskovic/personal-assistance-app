@@ -129,7 +129,7 @@ public class MissionServiceTest {
     }
 
     @Test
-    public void testGetAllMissions(){
+    public void testGetAllMissions() {
 
         MissionDto missionDto1 = new MissionDto();
         Mission mission = new Mission();
@@ -171,78 +171,4 @@ public class MissionServiceTest {
         // Assert
         assertEquals(expected, actual);
     }
-
-
-/*
-    ////////////////////////////////////////////////////////////////////
-    @Test
-    public void testVolunteerRegistrationDuplicateName(){
-
-        VolunteerForm volunteerForm = new VolunteerForm();
-        volunteerForm.setUserForm(new UserForm());
-        volunteerForm.getUserForm().setUsername("Bob");
-        User user = new User();
-        user.setUsername("Bob");
-        List<User> users = new ArrayList<>();
-        users.add(user);
-
-        when(userRepository.findAll()).thenReturn(users);
-        // Assert
-        assertThrows(DuplicateKeyException.class, () -> userService.volunteerRegistration(volunteerForm));
-
-    }
-
-    @Test
-    public void testProfessionalInChargeRegistration() {
-        // Arrange
-        ProfessionalInChargeForm professionalInChargeForm = new ProfessionalInChargeForm();
-        professionalInChargeForm.setUserForm(new UserForm());
-        ProfessionalInCharge professionalInCharge = new ProfessionalInCharge();
-        professionalInCharge.setUser(new User());
-        ProfessionalInChargeDto expected = new ProfessionalInChargeDto();
-
-        when(professionalInChargeMapper.mapFormToObject(professionalInChargeForm)).thenReturn(professionalInCharge);
-        when(roleRepository.getReferenceById(3L)).thenReturn(new Role());
-        when(userRepository.save(any(User.class))).thenReturn(new User());
-        when(professionalInChargeRepository.save(any(ProfessionalInCharge.class))).thenReturn(professionalInCharge);
-        when(professionalInChargeMapper.mapObjectToDto(professionalInCharge)).thenReturn(expected);
-
-        // Act
-        ProfessionalInChargeDto actual = userService.professionalInChargeRegistration(professionalInChargeForm);
-
-        // Assert
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testProfessionalInChargeRegistrationDuplicateName(){
-
-        ProfessionalInChargeForm professionalInChargeForm = new ProfessionalInChargeForm();
-        professionalInChargeForm.setUserForm(new UserForm());
-        professionalInChargeForm.getUserForm().setUsername("Bob");
-        User user = new User();
-        user.setUsername("Bob");
-        List<User> users = new ArrayList<>();
-        users.add(user);
-
-        when(userRepository.findAll()).thenReturn(users);
-        // Assert
-        assertThrows(DuplicateKeyException.class, () -> userService.professionalInChargeRegistration(professionalInChargeForm));
-
-    }
-
-    @Test
-    public void testUserLogin(){
-        UserForm userForm = new UserForm();
-        User user = new User();
-        UserDto expected = new UserDto();
-
-        when(userRepository.findByUsernameAndPassword(userForm.getUsername(), userForm.getPassword())).thenReturn(Optional.of(user));
-        when(userMapper.mapObjectToDto(user)).thenReturn(expected);
-
-        UserDto actual = userService.userLogin(userForm);
-        assertEquals(expected, actual);
-    }
-
- */
 }
