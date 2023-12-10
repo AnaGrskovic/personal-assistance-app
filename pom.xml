@@ -8,14 +8,17 @@
 		<version>3.1.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>insa.project.</groupId>
 	<artifactId>personal-assistance-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>personal-assistance-app</name>
 	<description>Application for providing personal assistance to people in need</description>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,7 +56,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>3.11.2</version>
+			<scope>test</scope>
+		</dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -72,7 +86,7 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.20</version>
+							<version>1.18.30</version>
 						</path>
 						<path>
 							<groupId>org.mapstruct</groupId>

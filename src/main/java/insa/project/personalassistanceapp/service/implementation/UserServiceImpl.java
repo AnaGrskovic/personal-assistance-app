@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    //TODO: Should we specify @Autowired ?
     private final UserMapper userMapper;
     private final PersonInNeedMapper personInNeedMapper;
     private final VolunteerMapper volunteerMapper;
