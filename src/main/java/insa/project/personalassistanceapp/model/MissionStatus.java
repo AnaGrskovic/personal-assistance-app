@@ -17,4 +17,5 @@ public class MissionStatus {
 
     @Column(name="mission_status_name")
     private String missionStatusName;
+
 }
