@@ -188,3 +188,67 @@ public class UserServiceTest {
 
 
 }
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testVolunteerRegistration() {
+        // Arrange
+        VolunteerForm volunteerForm = new VolunteerForm();
+        Volunteer volunteer = new Volunteer();
+        volunteer.setUser(new User());
+        VolunteerDto expected = new VolunteerDto();
+
+        when(volunteerMapper.mapFormToObject(volunteerForm)).thenReturn(volunteer);
+        when(roleRepository.getReferenceById(2L)).thenReturn(new Role());
+        when(userRepository.save(any(User.class))).thenReturn(new User());
+        when(volunteerRepository.save(any(Volunteer.class))).thenReturn(volunteer);
+        when(volunteerMapper.mapObjectToDto(volunteer)).thenReturn(expected);
+
+        // Act
+        VolunteerDto actual = userService.volunteerRegistration(volunteerForm);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testProfessionalInChargeRegistration() {
+        // Arrange
+        ProfessionalInChargeForm professionalInChargeForm = new ProfessionalInChargeForm();
+        ProfessionalInCharge professionalInCharge = new ProfessionalInCharge();
+        professionalInCharge.setUser(new User());
+        ProfessionalInChargeDto expected = new ProfessionalInChargeDto();
+
+        when(professionalInChargeMapper.mapFormToObject(professionalInChargeForm)).thenReturn(professionalInCharge);
+        when(roleRepository.getReferenceById(3L)).thenReturn(new Role());
+        when(userRepository.save(any(User.class))).thenReturn(new User());
+        when(professionalInChargeRepository.save(any(ProfessionalInCharge.class))).thenReturn(professionalInCharge);
+        when(professionalInChargeMapper.mapObjectToDto(professionalInCharge)).thenReturn(expected);
+
+        // Act
+        ProfessionalInChargeDto actual = userService.professionalInChargeRegistration(professionalInChargeForm);
+
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testUserLogin(){
+        UserForm userForm = new UserForm();
+        User user = new User();
+        UserDto expected = new UserDto();
+
+        when(userRepository.findByUsernameAndPassword(userForm.getUsername(), userForm.getPassword())).thenReturn(Optional.of(user));
+        when(userMapper.mapObjectToDto(user)).thenReturn(expected);
+
+        UserDto actual = userService.userLogin(userForm);
+        assertEquals(expected, actual);
+    }
+
+    //TODO: Test with two user with the same name
+    //TODO: Mock the new function ()
+
+}
