@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public PersonInNeedDto personInNeedRegistration(PersonInNeedForm personInNeedForm) {
         List<User> users = userRepository.findAll();
+
         List<String> usernames = users.stream().map(User::getUsername).toList();
         if (usernames.contains(personInNeedForm.getUserForm().getUsername())) {
             throw new DuplicateKeyException("User with that username already exists.");
