@@ -2,6 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>All Missions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
 <h2>All Missions</h2>
@@ -19,9 +51,9 @@
         <td th:text="${mission.missionId}"></td>
         <td th:text="${mission.missionName}"></td>
         <td th:text="${mission.missionDescription}"></td>
-        <td th:text="${mission.personInNeed.user.username}"></td>
-        <td th:text="${mission.volunteer.user.username}"></td>
-        <td th:text="${mission.missionStatus.missionStatusName}"></td>
+        <td th:text="${mission.personInNeedDto != null ? mission.personInNeedDto.UserDto.username : ' '}"></td>
+        <td th:text="${mission.volunteerDto != null ? mission.volunteerDto.UserDto.username : ' '}"></td>
+        <td th:text="${mission.MissionStatusDto.missionStatusName}"></td>
     </tr>
 </table>
 

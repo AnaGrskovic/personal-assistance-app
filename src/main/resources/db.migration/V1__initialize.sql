@@ -85,11 +85,11 @@ INSERT INTO person_in_need (person_in_need_id, user_id, first_name, last_name, d
 VALUES (1, 1, 'Person1', 'InNeed1', '1990-01-01', 'Address1', 'City1', '12345', 'Country1'),
        (2, 2, 'Person2', 'InNeed2', '1995-02-02', 'Address2', 'City2', '67890', 'Country2');
 
-INSERT INTO professional_in_charge (professional_in_charge_id, user_id)
+INSERT INTO volunteer (volunteer_id, user_id)
 VALUES (1, 3),
        (2, 4);
 
-INSERT INTO volunteer (volunteer_id, user_id)
+INSERT INTO professional_in_charge (professional_in_charge_id, user_id)
 VALUES (1, 5),
        (2, 6);
 
