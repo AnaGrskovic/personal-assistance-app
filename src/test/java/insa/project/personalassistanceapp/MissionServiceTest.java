@@ -122,8 +122,6 @@ public class MissionServiceTest {
         expected.setPersonInNeedDto(new PersonInNeedDto());
         expected.setVolunteerDto(new VolunteerDto());
 
-        when(missionMapper.mapFormToObject(missionForm)).thenReturn(mission);
-
         // Assert
         assertThrows(InvalidObjectException.class, () -> missionService.createMission(missionForm));
     }
