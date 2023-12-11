@@ -40,4 +40,4 @@ Before you begin, ensure you have the following prerequisites:
     java -jar target/personal-assistance-app-0.0.1-SNAPSHOT.jar
     ```
 
-2. Open your browser and go to
+2. Open your browser and go to [Personnal Assist](http://localhost:8080)
